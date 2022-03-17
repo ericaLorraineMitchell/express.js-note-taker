@@ -1,24 +1,24 @@
+//require dependencies and files
 const express = require('express');
-const fs = require('fs');
 const html = require('./routes/html');
 const api = require('./routes/api');
 
 //Initialize express app
 const app = express();
 
-//Port listen 
+//Port listen for requests
 const PORT = process.env.PORT || 3000;
 
-//Read static files in public folder
+//Read static files in public folder (middleware)
 app.use(express.static(__dirname, 'public'));
 
-//Parse json data
+//Parse json data (middleware)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Use route html and api files
-app.use(html);
-app.use(api);
+app.use('/html', html);
+app.use('/api', api);
 
 //Port listen on
 app.listen(PORT, () => {

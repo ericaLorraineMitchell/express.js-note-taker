@@ -1,16 +1,20 @@
-const express = require("express");
-
+const path = require("path");
+const fs = require('fs');
 const notesData = require("./db/db.json");
-const PORT = 3000;
 
-const app = express();
-
-//Get to read json file and return saved notes as json
+//Get to read json file and return saved notes as json in storage
 app.get("/", (req, res) => res.send("json data"));
-
 app.get("/api/db", (req, res) => res.json(notesData));
+app.get(notesData, (req, res) => res.sendFile(path.join(notesData)));
+
+//Post fetch new note, add to json storage
+// app.post("/api/db", (req, res) => {
+//     var newNote = {${id}, title, text};
 
 
-//Post fetch new note, add to json and return to client
+// });
 
-app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
+//delete bonus
+
+
+module.exports = app;
