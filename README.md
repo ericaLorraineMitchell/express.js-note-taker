@@ -12,11 +12,11 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 Express dependency for application.  Install package by "npm install" in terminal environment.
 
 ## Mock up & Deploy
-[visit Heroku site] (here)
+[Visit Heroku site](here)
 
 ![App appearance](./Images/11-express-homework-demo-01.png)
 ![App appearance](./Images/11-express-homework-demo-02.png)
 
 ## Contact & Questions
 - [Email](elorrainemitchell@gmail.com)
-- [GitHub] (https://github.com/ericaLorraineMitchell)
+- [GitHub](https://github.com/ericaLorraineMitchell)
