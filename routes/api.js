@@ -1,20 +1,25 @@
+const router = require("express").Router();
 const path = require("path");
-const fs = require('fs');
-const notesData = require("./db/db.json");
+const fs = require("fs");
+const notesData = require("../db/db.json");
 const res = require("express/lib/response");
 
 //Get to read json file and return saved notes as json in storage
-app.get("/", (req, res) => res.send("json data"));
-app.get("/api/db", (req, res) => res.json(notesData));
-app.get(notesData, (req, res) => res.sendFile(path.join(notesData)));
+router.get("/", (req, res) => res.send("json data"));
+router.get("/notes", (req, res) => res.json(notesData));
 
 //Post fetch new note, add to json storage
-// app.post("/api/db", (req, res) => {
-//     const newNote = {${id}, title, text};
-// res.writeFile(path.join(newNote));
-// });
+router.post("/notes", (req, res) => {
+  const newNote = req.body;
+  fs.appendFile(
+    path.join(__dirname, "../db/db.json"),
+    JSON.stringify(newNote),
+    function (err, data) {
+      res.json(data);
+    }
+  );
+});
 
 //delete bonus
-
-
-module.exports = app;
+// /api/notes/:id
+module.exports = router;
