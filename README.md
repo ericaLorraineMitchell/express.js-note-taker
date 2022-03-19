@@ -9,7 +9,7 @@ I WANT to be able to write and save notes
 SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
 ## Installation
-Express dependency for application.  Install package by "npm install" in terminal environment.
+Express dependency for application.  Install package by `npm install` in terminal environment. Then run `node server.js` and open `localhost http` in browser.
 
 ## Mock up & Deploy
 [Visit Heroku site](here)
