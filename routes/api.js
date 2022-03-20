@@ -14,8 +14,13 @@ router.get("/notes", (req, res) => res.json(notesData));
 router.post("/notes", (req, res) => {
   const newNote = req.body;
   newNote.id = uuid.v4();
+  //read db.json & assign to variable (node.js)
+  let readNote = fs.readFileSync(notesData);
+  //json.parse to make array
+  JSON.parse(readNote);
+  console.log(readNote);
   notesData.push(newNote);
-  fs.writeFileSync("./db/db.json", JSON.stringify(notesData));
+  fs.writeFileSync("../db/db.json", JSON.stringify(notesData));
   res.json(notesData);
 });
 
