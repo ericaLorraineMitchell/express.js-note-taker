@@ -12,20 +12,17 @@ router.get("/notes", (req, res) => res.json(notesData));
 
 //Post fetch new note with unique id, show and add to json storage
 router.post("/notes", (req, res) => {
+  const notesData = JSON.parse(fs.readFileSync("./db/db.json"));
   const newNote = req.body;
   newNote.id = uuid.v4();
-  //read db.json & assign to variable (node.js)
-  let readNote = fs.readFileSync(notesData);
-  //json.parse to make array
-  JSON.parse(readNote);
-  console.log(readNote);
   notesData.push(newNote);
-  fs.writeFileSync("../db/db.json", JSON.stringify(notesData));
+  fs.writeFileSync("./db/db.json", JSON.stringify(notesData));
   res.json(notesData);
 });
 
 //delete bonus finds new notes with id parameter and removes note
 router.delete("/notes/:id", (req, res) => {
+  const notesData = JSON.parse(fs.readFileSync("./db/db.json"));
   const deleteNote = notesData.find((x) => x.id === req.params.id);
   fs.writeFileSync("./db/db.json", JSON.stringify(deleteNote));
   res.json(deleteNote);
