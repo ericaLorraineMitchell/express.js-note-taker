@@ -8,7 +8,7 @@ const { networkInterfaces } = require("os");
 
 //Get to read json file and return saved notes as json in storage
 router.get("/", (req, res) => res.send("json data"));
-router.get("/notes", (req, res) => res.json(notesData));
+router.get("/notes", (req, res) => res.sendFile(path.join(__dirname, "../db/db.json")));
 
 //Post fetch new note with unique id, show and add to json storage
 router.post("/notes", (req, res) => {
