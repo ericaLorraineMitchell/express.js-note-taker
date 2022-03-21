@@ -22,12 +22,12 @@ router.post("/notes", (req, res) => {
   res.json(notesData);
 });
 
-//delete bonus finds new notes with id parameter and removes note
-router.delete("/notes/:id", (req, res) => {
-  const notesData = JSON.parse(fs.readFileSync("./db/db.json"));
-  const deleteNote = notesData.find((x) => x.id === req.params.id);
-  fs.writeFileSync("./db/db.json", JSON.stringify(deleteNote));
-  res.json(deleteNote);
-});
+//delete bonus finds new notes with id parameter and removes note  - ISSUE: THIS DELETES TEST STARTER NOTE & REMOVES BRACKETS(ARRAY TYPE) FROM THE NEW NOTE
+// router.delete("/notes/:id", (req, res) => {
+//   const notesData = JSON.parse(fs.readFileSync("./db/db.json"));
+//   const deleteNote = notesData.find((x) => x.id === req.params.id);
+//   fs.writeFileSync("./db/db.json", JSON.stringify(deleteNote));
+//   res.json(deleteNote);
+// });
 
 module.exports = router;
