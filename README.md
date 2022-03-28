@@ -1,7 +1,7 @@
 # express.js-note-taker
 
 ## Description
-Update starter code for application that writes, saves and deletes notes in real time. The application uses Node.js and Express back-end to save and retrieve notes from json storage file.
+Update to frontend code for application that writes, saves and deletes notes in real time. The application uses Node.js and Express back-end to save and retrieve notes from json storage file.
 
 ## User Story
 AS A small business owner
